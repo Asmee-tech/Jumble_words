@@ -1,24 +1,11 @@
 from tkinter import *
-from random import *
+import random
 from tkinter import messagebox
 
 screen=Tk()
 screen.title("Jumbled words")
 screen.geometry("500x500+500+150")
 screen.config(bg="black")
-
-title=Label(screen,text="JUMBLED WORDS GAME!",font=("roboto",28,"bold"),bg="black",fg="white")
-title.pack(pady=5)
-
-word=Label(screen,text="xyz",font=("roboto",20,"bold"),bg="black",fg="white")
-word.pack(pady=30,ipady=10,ipadx=10)
-
-s=Label(screen,text="",font=("roboto",20,"bold"),bg="black",fg="white")
-s.pack(pady=10)
-
-ans=StringVar()
-ent=Entry(screen,font=("roboto",20,"bold"),textvariable=ans)
-ent.pack(ipady=10)
 
 words = ["cat", "dog", "sun", "tree", "book", "ball", "fish", "house", "chair", "apple",
     "water", "milk", "bird", "shoe", "phone", "car", "table", "door", "cake", "school",
@@ -31,7 +18,6 @@ jumbled_words = ["tca", "gdo", "nus", "reet", "kobo", "llab", "hsfi", "sehou", "
     "werflo", "vreir", "dbe", "cilpen", "repap", "koclc", "owdwin", "tha", "edngra", "nrait",
     "abby", "ndha", "toof", "misel", "heacb", "nari", "owns", "adber", "eeehsc", "yekmon",
     "bbitra", "tainmoun", "pmal", "ketbas", "georan", "lyfami", "endifr", "sicmu", "ppyha", "meard"]
-
 
 num=random.randrange(0,len(jumbled_words),1)
 correct_ans=0
@@ -59,5 +45,26 @@ def check():
     s1= "Score:"+str(correct_ans)+"/"+str(total_at)
     s.config(text=s1)
     reset()
+
+
+title=Label(screen,text="JUMBLED WORDS GAME!",font=("roboto",28,"bold"),bg="black",fg="white")
+title.pack(pady=5)
+
+word=Label(screen,text="xyz",font=("roboto",20,"bold"),bg="black",fg="white")
+word.pack(pady=30,ipady=10,ipadx=10)
+
+s=Label(screen,text="",font=("roboto",20,"bold"),bg="black",fg="white")
+s.pack(pady=10)
+
+ans=StringVar()
+ent=Entry(screen,font=("roboto",20,"bold"),textvariable=ans)
+ent.pack(ipady=10)
+
+che=Button(screen,text="Check",font=("roboto",20,"bold"),bg="grey",fg="green",width=10,relief=GROOVE, command=check)
+che.pack(pady=40)
+
+res=Button(screen,text="Reset",font=("roboto",20,"bold"),bg="grey",fg="yellow",width=10,relief=GROOVE, command=reset)
+res.pack()
+
 
 screen.mainloop()
